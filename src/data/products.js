@@ -3,7 +3,7 @@ const products = [
     {
         id: 1,
         name: "Proteína Whey Gold Standard",
-        price: 49.99,
+        price: 49.000,
         category: "proteinas",
         image: "/public/images/proteina1.jpg"
     },
@@ -21,6 +21,14 @@ const products = [
         category: "pre-entrenos",
         image: "/public/images/pre entreno 2.jpg"
     },
+
+    {
+        id:4,
+        name: "Vitamina",
+        price: 19.99,
+        category: "vitaminas",
+        image: "/public/images/vitamina.jpg"
+    }
 ];
 
 export default products;

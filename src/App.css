@@ -2,14 +2,14 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
+  padding-top: 70px;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #3333335f;
   color: white;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -19,10 +19,12 @@ body {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-card {
-  border: 1px solid #ddd;
+  border: 1px solid #44404056;
   padding: 1rem;
   width: 200px;
   text-align: center;
@@ -32,6 +34,7 @@ body {
   width: 150px;
   height: 150px;
   object-fit: cover;
+  display: inline-block;
 }
 
 .simple-cart {
@@ -45,11 +48,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #382f2f;
 }
 
 button {
-  background-color: #007bff;
+  background-color: #a41d0b;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -57,7 +60,7 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #b3a00f;
 }
 
 /* Estilos del carrito */
