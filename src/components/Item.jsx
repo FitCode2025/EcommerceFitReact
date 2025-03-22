@@ -5,7 +5,7 @@ return (
     <div className="product-card">
     <img src={product.image} alt={product.name} />
     <h3>{product.name}</h3>
-    <p>${product.price}</p>
+    <p>${product.price.toFixed(3)}</p>
     <button onClick={() => addToCart(product)}>Agregar al carrito</button>
     </div>
 );
