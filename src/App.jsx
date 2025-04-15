@@ -1,37 +1,25 @@
-import { useState } from 'react';
-import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import Cart from './components/Cart';
+import { CartProvider } from "./Context/CartContext";
+import Navbar from "./components/Navbar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "./components/Cart";
+import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import CategoryItemListContainer from './components/CategoryItemListContainer';
-import { Routes, Route } from 'react-router-dom';
+import Checkout from "./components/CheckOut";
 
 function App() {
-  const [cart, setCart] = useState([]);
-
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
-  const removeFromCart = (index) => {
-    const newCart = cart.filter((_, i) => i !== index);
-    setCart(newCart);
-  };
-  
   return (
-    <div className="App">
-      <NavBar cartCount={cart.length} />
-      <Routes>
-      <Route path="/" element={<ItemListContainer addToCart={addToCart} />} />
-        <Route path="/products" element={<ItemListContainer addToCart={addToCart} />} />
-        <Route path="/category/:categoryId" element={<CategoryItemListContainer addToCart={addToCart} />} />
-        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />} />
-      </Routes>
-      </div>
-)
+      <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} /> 
+          <Route path="/checkOut" element={<Checkout />} />
+        </Routes>
+      </CartProvider>
+  );
 }
 
 export default App;
