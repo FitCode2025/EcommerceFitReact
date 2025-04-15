@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../Context/useCart';
+import CartWidget from './CartWidget'; // Asegúrate de la ruta correcta
 
 const NavBar = () => {
-  const { cartCount } = useCart(); // Obtiene la cantidad total de items del carrito
+  useCart(); // Obtiene la cantidad total de items del carrito
 
 return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -43,15 +44,10 @@ return (
         </ul>
 
         <div className="d-flex align-items-center">
-            <Link to="/cart" className="btn btn-outline-light position-relative">
-            🛒 Carrito
-            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {cartCount}
-            </span>
-            </Link>
-            <Link to="/checkout" className="btn btn-success"> {/* Agrega enlace al Checkout */}
+            <CartWidget /> {/* Aquí se utiliza el CartWidget, que a su vez usa cartCount */}
+            <Link to="/checkout" className="btn btn-success ms-2">
             Checkout
-        </Link>
+            </Link>
         </div>
         </div>
     </div>
