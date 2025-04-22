@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ItemCount from './ItemCount';
-import { useCart } from '../Context/useCart'; // Importa el hook useCart
+import { useCart } from '../Context/useCart';
 
 function ItemDetail({ product }) {
 const [addedToCart, setAddedToCart] = useState(false);
@@ -26,6 +26,7 @@ return (
         <h2>{product.title}</h2>
         <p className="lead">${product.price}</p>
         <p className="text-muted">{product.description}</p>
+        <p className="text-info">Stock disponible: {product.stock}</p>
         {!addedToCart ? (
             <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} />
         ) : (
@@ -44,7 +45,7 @@ product: PropTypes.shape({
     price: PropTypes.number.isRequired,
     description: PropTypes.string,
     image: PropTypes.string,
-    stock: PropTypes.number.isRequired, // Asegúrate de que la prop 'stock' esté presente
+    stock: PropTypes.number.isRequired,
 }).isRequired,
 };
 

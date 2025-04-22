@@ -2,32 +2,41 @@
 const products = [
     {
         id: 1,
-        name: "Proteína Whey Gold Standard",
-        price: 49.000,
+        title: "Proteína",
         category: "proteinas",
-        image: "/public/images/proteina1.jpg"
+        price: 49.000,
+        stock: 10,
+        image: "/public/images/proteina1.jpg",
+        description: "Excelente suero de proteina aislada para una mejor asimilacion."
+        
     },
     {
         id: 2,
-        name: "Creatina Monohidratada",
-        price: 30.000,
-        category: "creatina",
-        image: "/public/images/creatina.jpg"
+        title: "Creatina",
+        category: "creatinas",
+        price: 29.000,
+        stock: 20,
+        image: "/public/images/creatina.jpg",
+        description: "Monohidrato de creatina ideal para la recuperacion muscular y energia",
     },
     {
         id: 3,
-        name: "Pre-entreno Nitro Explode",
-        price: 40.000,
+        title: "Pre-entreno",
         category: "pre-entrenos",
-        image: "/public/images/pre entreno 2.jpg"
+        price: 40.000,
+        stock: 15,
+        image: "/public/images/pre entreno 2.jpg",
+        description: "Pre-entreno para aumentar la energia y la concentracion",
     },
 
     {
         id:4,
-        name: "Vitamina",
-        price: 20.000,
+        title: "Vitamina",
         category: "vitaminas",
-        image: "/public/images/vitamina.jpg"
+        price: 20.000,
+        stock: 25,
+        image: "/public/images/vitamina.jpg",
+        description: "Vitamina para mantener la salud y el bienestar",
     }
 ];
 

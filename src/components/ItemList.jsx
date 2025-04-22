@@ -20,7 +20,7 @@ products: PropTypes.arrayOf(
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
     stock: PropTypes.number.isRequired,
     }).isRequired
 ).isRequired,

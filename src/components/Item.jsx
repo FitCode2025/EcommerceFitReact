@@ -17,7 +17,7 @@ const Item = ({ product }) => {
   return (
     <div className="card h-70">
       
-      <img src={product.image} alt={product.title}  className="card-img-top" style={{ maxHeight: '200px', objectFit: 'cover'}}/>
+      <img src={product.img} alt={product.title}  className="card-img-top" style={{ maxHeight: '200px', objectFit: 'cover'}}/>
       <div className="card-body">
       <h3 className="card-title">{product.title}</h3>
       <p className="card-text">${product.price.toFixed(3)}</p>
@@ -33,10 +33,10 @@ const Item = ({ product }) => {
 
 Item.propTypes = {
   product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
+    img: PropTypes.string.isRequired,
     stock: PropTypes.number.isRequired,
   }).isRequired,
 };
