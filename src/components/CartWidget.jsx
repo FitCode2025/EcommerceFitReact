@@ -1,4 +1,4 @@
-import { useCart } from '../Context/useCart';
+import  useCart  from '../Context/useCart';
 import { Link } from 'react-router-dom';
 
 const CartWidget = () => {

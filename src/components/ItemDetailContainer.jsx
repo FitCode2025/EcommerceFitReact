@@ -1,55 +1,40 @@
-import ItemDetail from "./ItemDetail";
+// src/components/ItemDetailContainer.jsx
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import products from "../data/products";
+import { db } from "../service/firebase";
+import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
-    const { itemId } = useParams();
-    const [product, setProduct] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+const { itemId } = useParams();
+const [product, setProduct] = useState(null);
+const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setLoading(true);
-        setError(null);
+useEffect(() => {
+    const fetchProduct = async () => {
+    try {
+        const docRef = doc(db, "Productos", itemId);
+        const docSnap = await getDoc(docRef);
 
-        const getProductById = (id) => {
-            return new Promise((resolve) => {
-                setTimeout(() => {
-                    const foundProduct = products.find(
-                        (prod) => prod.id === parseInt(id)
-                    );
-                    resolve(foundProduct || null);
-                }, 1000);
-            });
-        };
-
-        getProductById(itemId)
-            .then((data) => {
-                setProduct(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err);
-                setLoading(false);
-            });
-
-    }, [itemId]);
-
-    if (loading) {
-        return <div>Cargando detalles del producto...</div>;
+        if (docSnap.exists()) {
+        setProduct({ id: docSnap.id, ...docSnap.data() });
+        } else {
+        console.log("No se encontró el producto.");
+        }
+    } catch (error) {
+        console.error("Error al obtener el producto:", error);
+    } finally {
+        setLoading(false);
     }
+    };
 
-    if (error) {
-        return <div>Error al cargar los detalles del producto: {error}</div>;
-    }
+    fetchProduct();
+}, [itemId]);
 
-    return (
-        <div>
-            <h2>Detalle del Producto</h2>
-            {product && <ItemDetail product={product} />}
-        </div>
-    );
+if (loading) return <div className="text-center">Cargando...</div>;
+if (!product) return <div className="text-center">Producto no encontrado</div>;
+
+return <ItemDetail product={product} />;
 };
 
 export default ItemDetailContainer;

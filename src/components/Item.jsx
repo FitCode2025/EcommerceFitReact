@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { useCart } from "../Context/useCart";
+import  useCart  from "../Context/useCart";
 import ItemCount from './ItemCount';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = ({ product }) => {
   const [, setQuantityToAdd] = useState(0);
@@ -16,7 +17,7 @@ const Item = ({ product }) => {
 
   return (
     <div className="card h-70">
-      
+      <Link to={`/item/${product.id}`} className="text-decoration-none text-dark"></Link>
       <img src={product.img} alt={product.title}  className="card-img-top" style={{ maxHeight: '200px', objectFit: 'cover'}}/>
       <div className="card-body">
       <h3 className="card-title">{product.title}</h3>

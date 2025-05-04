@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState } from 'react';
 
 const CartContext = createContext();
 
@@ -32,7 +32,9 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={contextValue}>{children}</CartContext.Provider> // Pasamos todo el objeto
+    <CartContext.Provider value={contextValue}>
+      {children}
+    </CartContext.Provider>
   );
 };
 
@@ -40,12 +42,4 @@ CartProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart debe usarse dentro de un CartProvider');
-  }
-  return context;
-};
-export {CartContext};
+export { CartContext }; 

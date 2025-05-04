@@ -38,8 +38,36 @@ const ItemListContainer = () => {
     }, [categoryId]);
 
     if (loading) {
-        return <div className="d-flex justify-content-center">Cargando productos...</div>;
+        return (
+            <div className="container mt-5">
+                <h2 className="mb-4">Cargando productos...</h2>
+                <div className="row">
+                    {[...Array(6)].map((_, index) => (
+                        <div className="col-md-4 mb-4" key={index}>
+                            <div className="card" aria-hidden="true">
+                                <div className="card-img-top bg-secondary" style={{ height: '200px', opacity: 0.5 }}></div>
+                                <div className="card-body">
+                                    <h5 className="card-title placeholder-glow">
+                                        <span className="placeholder col-6"></span>
+                                    </h5>
+                                    <p className="card-text placeholder-glow">
+                                        <span className="placeholder col-7"></span>
+                                        <span className="placeholder col-4"></span>
+                                        <span className="placeholder col-4"></span>
+                                        <span className="placeholder col-6"></span>
+                                        <span className="placeholder col-8"></span>
+                                    </p>
+                                    <a href="#" tabIndex="-1" className="btn btn-primary disabled placeholder col-6"></a>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
     }
+    
+    
 
     if (error) {
         return <div className="alert alert-danger" role="alert">Error al cargar los productos: {error}</div>;

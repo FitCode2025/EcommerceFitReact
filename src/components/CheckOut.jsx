@@ -1,4 +1,4 @@
-import { useCart } from '../Context/useCart';
+import  useCart  from '../Context/useCart';
 import { Link } from 'react-router-dom';
 
 const Checkout = () => {
@@ -14,10 +14,7 @@ if (cart.length === 0) {
 }
 
 const handlePlaceOrder = () => {
-    // Aquí iría la lógica para procesar el pedido:
-    // - Enviar los datos del carrito y la información del usuario al servidor.
-    // - Realizar el pago.
-    // - Limpiar el carrito después de un pedido exitoso.
+
     alert('¡Pedido realizado con éxito! (Funcionalidad de procesamiento no implementada)');
     // Puedes redirigir al usuario a una página de confirmación aquí.
 };
@@ -56,7 +53,6 @@ return (
         <label htmlFor="address" className="form-label">Dirección</label>
         <input type="text" className="form-control" id="address" placeholder="Calle y número" required />
         </div>
-        {/* Agrega más campos para la información de envío y pago */}
         <button type="button" className="btn btn-primary" onClick={handlePlaceOrder}>Realizar Pedido</button>
     </form>
     </div>

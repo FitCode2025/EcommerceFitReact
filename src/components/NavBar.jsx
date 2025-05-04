@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../Context/useCart';
-import CartWidget from './CartWidget'; // Asegúrate de la ruta correcta
+import  useCart  from '../Context/useCart';
+import CartWidget from './CartWidget'; 
 
 const NavBar = () => {
-  useCart(); // Obtiene la cantidad total de items del carrito
+useCart(); 
 
 return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -30,7 +30,7 @@ return (
             <Link className="nav-link" to="/">Inicio</Link>
             </li>
             <li className="nav-item">
-            <Link className="nav-link" to="/category/proteinas">Proteínas</Link>
+            <Link className="nav-link" to="/category/Proteinas">Proteinas</Link>
             </li>
             <li className="nav-item">
             <Link className="nav-link" to="/category/Pre-entrenos">Pre-entrenos</Link>

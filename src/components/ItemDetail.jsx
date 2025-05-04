@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import ItemCount from './ItemCount';
-import { useCart } from '../Context/useCart';
+import  UseCart  from '../Context/useCart';
 
 function ItemDetail({ product }) {
 const [addedToCart, setAddedToCart] = useState(false);
-const { addToCart } = useCart();
+const { addToCart } = UseCart();
 
 const handleAddToCart = (quantity) => {
     addToCart({ ...product, quantity });
@@ -15,6 +15,7 @@ const handleAddToCart = (quantity) => {
 if (!product) {
     return <p className="alert alert-info">No se ha seleccionado ningún producto.</p>;
 }
+console.log("Producto recibido:", product);
 
 return (
     <div className="container mt-5">
@@ -40,7 +41,7 @@ return (
 
 ItemDetail.propTypes = {
 product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     description: PropTypes.string,

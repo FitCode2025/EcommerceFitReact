@@ -2,7 +2,7 @@
 const products = [
     {
         id: 1,
-        title: "Proteína",
+        title: "Proteina",
         category: "proteinas",
         price: 49.000,
         stock: 10,
